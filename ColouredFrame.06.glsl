@@ -26,13 +26,8 @@ uniform vec3 color;
 //Noise Uniforms
 uniform bool static_noise;
 uniform bool color_noise;
-<<<<<<< HEAD
 uniform float zoom;
-=======
 uniform float cells;
-
-
->>>>>>> miles
 
 //Checkerboard Uniforms
 uniform vec3 cb_color1, cb_color2;
