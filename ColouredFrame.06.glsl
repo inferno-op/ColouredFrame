@@ -101,7 +101,6 @@ float draw_circle(vec2 st, vec2 center, float size, float aspect)
     return circle;
 }
 
-
 vec3 rgb2hsv(vec3 c)
 {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
@@ -262,7 +261,7 @@ vec3 checkerboard(vec2 st, vec3 first, vec3 second)
 	return mix(first, second, max(0.0, sign(sin(p.x)) * sign(sin(p.y))));
 }
 
-//SMTP2
+//SMPTE2
 vec3 smpte2_colorbars(vec2 st)
 {
 	vec3 col = black;
@@ -288,7 +287,7 @@ vec3 smpte2_colorbars(vec2 st)
 	return col;
 }
 
-//SMTP
+//SMPTE
 vec3 smpte_colorbars(vec2 st)
 {
 	vec3 col = black;
