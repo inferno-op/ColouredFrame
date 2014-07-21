@@ -19,8 +19,8 @@ uniform bool shue;
 uniform bool show_swatch;
 uniform vec2 swatch_center;
 uniform float swatch_size;
-uniform bool show_pallete;
-uniform float pallete_detail;
+uniform bool show_palette;
+uniform float palette_detail;
 uniform vec3 color;
 
 //Noise Uniforms
@@ -33,8 +33,8 @@ uniform float cells;
 uniform vec3 cb_color1, cb_color2;
 uniform float checkerboard_freq;
 uniform float cb_aspect;
-uniform bool show_cbpallete;
-uniform float cbpallete_detail;
+uniform bool show_cbpalette;
+uniform float cbpalette_detail;
 
 //Colorbars Uniforms
 uniform int colorbars_type;
@@ -51,8 +51,8 @@ uniform float cw_aspect;
 //Grad Uniforms
 uniform int grad_type;
 uniform int grad_fit;
-uniform bool show_gpallete;
-uniform float gpallete_detail;
+uniform bool show_gpalette;
+uniform float gpalette_detail;
 uniform vec3 grad_color1;
 uniform vec3 grad_color2;
 uniform bool grad_rev;
@@ -107,14 +107,14 @@ vec3 hsv2rgb(vec3 c)
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
-vec3 make_pallete(vec2 st, vec3 col, vec3 front)
+vec3 make_palette(vec2 st, vec3 col, vec3 front)
 {
 	vec2 coords = (st - vec2(.5)) / .65 + .5;
-	vec4 pallete;
+	vec4 palette;
    	if (isInTex(coords)) {
-    	pallete = texture2DLod(adsk_results_pass5, coords , pallete_detail);
+    	palette = texture2DLod(adsk_results_pass5, coords , palette_detail);
 
-   		col = mix(front, pallete.rgb, pallete.a);
+   		col = mix(front, palette.rgb, palette.a);
 
    		if (st.x < .2) {
        		col.rgb -= .5;
@@ -456,13 +456,13 @@ void main(void)
 	vec3 col = vec3(color);
 	float matte_out = luminance(col);
 
-	vec4 pallete = vec4(0.0);
+	vec4 palette = vec4(0.0);
 	float swatch = draw_circle(st, swatch_center, swatch_size * .25, 1.0);
 
 	bool sw = show_swatch;
-	bool sp = show_pallete;
-	bool gsp = show_gpallete;
-	bool csp = show_cbpallete;
+	bool sp = show_palette;
+	bool gsp = show_gpalette;
+	bool csp = show_cbpalette;
 
 	if (result != 0) {
 		sw = false;
@@ -472,13 +472,40 @@ void main(void)
 	}
 
 	if (process == 0) {
-		if (show_pallete) {
-			col = make_pallete(st, col, front);
-		}
-
 		if (sw) {
-			//col = mix(front, color, swatch);
-		}
+            col = mix(front, color, swatch);
+        }
+
+        if (sp) {
+            vec2 coords = (st - vec2(.5)) / .65 + .5;
+            if (isInTex(coords)) {
+                palette = texture2DLod(adsk_results_pass5, coords , palette_detail);
+
+
+                col = mix(front, palette.rgb, palette.a);
+
+                if (sw) {
+                    col = mix(col, color, swatch);
+                }
+
+                if (st.x < .2) {
+                    col.rgb -= .5;
+                    col = clamp(col, 0.0, 1.0);
+                }
+
+                float thresh = .93;
+                if (col.r > thresh && col.g > thresh && col.b > thresh) {
+                    col.rgb = white;
+                }
+            } else {
+                if (sw) {
+                    col = mix(front, color, swatch);
+                } else {
+                    col = front;
+                }
+            }
+        }
+
 	} else if (process == 1)
 	{
 		vec2 c = (cells/100.*res.x)*vec2(1.,res.y/res.x);
@@ -506,10 +533,10 @@ void main(void)
 		if (csp) {
             vec2 coords = (st - vec2(.5)) / .65 + .5;
             if (isInTex(coords)) {
-                pallete = texture2DLod(adsk_results_pass5, coords , cbpallete_detail);
+                palette = texture2DLod(adsk_results_pass5, coords , cbpalette_detail);
 
 
-                col = mix(col, pallete.rgb, pallete.a);
+                col = mix(col, palette.rgb, palette.a);
 
                 if (st.x < .2) {
                     col.rgb -= .5;
@@ -538,10 +565,10 @@ void main(void)
 		if (gsp) {
             vec2 coords = (st - vec2(.5)) / .65 + .5;
             if (isInTex(coords)) {
-                pallete = texture2DLod(adsk_results_pass5, coords , gpallete_detail);
+                palette = texture2DLod(adsk_results_pass5, coords , gpalette_detail);
 
 
-                col = mix(col, pallete.rgb, pallete.a);
+                col = mix(col, palette.rgb, palette.a);
 
                 if (st.x < .2) {
                     col.rgb -= .5; 

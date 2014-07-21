@@ -138,7 +138,7 @@ Matchbox version by miles@noesclavo.com and ivar@inferno-op.com" Name="ColouredF
          <SubUniform ResDependent="None" Max="1000000.0" Min="-1000000.0" Default="1.0">
          </SubUniform>
       </Uniform>
-	 <Uniform Row="0" Col="2" Page="0" Default="False" Tooltip="" DisplayName="Pallette" Type="bool" Name="show_cbpallette"
+	 <Uniform Row="0" Col="2" Page="0" Default="False" Tooltip="" DisplayName="Palette" Type="bool" Name="show_cbpalette"
 	  		UIConditionSource="process" UIConditionValue="2" UIConditionInvert="False" UIConditionType="Hide">
       </Uniform>
       <Uniform Inc="0.01" Tooltip="" Row="1" Col="1" Page="0" DisplayName="Color 2" IconType="Pick" ValueType="Colour" Type="vec3" Name="cb_color2"
@@ -155,7 +155,7 @@ Matchbox version by miles@noesclavo.com and ivar@inferno-op.com" Name="ColouredF
       <Uniform ResDependent="None" Max="5.0" Min="-5.0" Default="1.0" Inc="0.01" Tooltip="" Row="1" Col="1" Page="0" DisplayName="Value" Type="float" Name="cw_val"
 	  		UIConditionSource="process" UIConditionValue="4" UIConditionInvert="False" UIConditionType="Hide">
       </Uniform>
-		<Uniform ResDependent="None" Max="6.0" Min="0.0" Default="6.0" Inc="1.0" Tooltip="" Row="1" Col="2" Page="0" DisplayName="Detail" Type="float" Name="cbpallette_detail"
+		<Uniform ResDependent="None" Max="6.0" Min="0.0" Default="6.0" Inc="1.0" Tooltip="" Row="1" Col="2" Page="0" DisplayName="Detail" Type="float" Name="cbpalette_detail"
 	  		UIConditionSource="process" UIConditionValue="2" UIConditionInvert="False" UIConditionType="Hide">
       </Uniform>
 
@@ -219,7 +219,7 @@ Matchbox version by miles@noesclavo.com and ivar@inferno-op.com" Name="ColouredF
             </PopupEntry>
         </Uniform>
 
-		<Uniform ResDependent="None" Max="6.0" Min="0.0" Default="6.0" Inc="1.0" Tooltip="" Row="1" Col="2" Page="0" DisplayName="Detail" Type="float" Name="pallette_detail"
+		<Uniform ResDependent="None" Max="6.0" Min="0.0" Default="6.0" Inc="1.0" Tooltip="" Row="1" Col="2" Page="0" DisplayName="Detail" Type="float" Name="palette_detail"
 	  		UIConditionSource="process" UIConditionValue="0" UIConditionInvert="False" UIConditionType="Hide">
       	</Uniform>
 
@@ -263,7 +263,7 @@ Matchbox version by miles@noesclavo.com and ivar@inferno-op.com" Name="ColouredF
          </SubUniform>
       </Uniform>
 
-		<Uniform Row="0" Col="2" Page="0" Default="False" Tooltip="" DisplayName="Pallette" Type="bool" Name="show_pallette"
+		<Uniform Row="0" Col="2" Page="0" Default="False" Tooltip="" DisplayName="Palette" Type="bool" Name="show_palette"
 	 		UIConditionSource="process" UIConditionValue="0" UIConditionInvert="False" UIConditionType="Hide">
       	</Uniform>
 
@@ -271,7 +271,7 @@ Matchbox version by miles@noesclavo.com and ivar@inferno-op.com" Name="ColouredF
 	 		UIConditionSource="process" UIConditionValue="3" UIConditionInvert="False" UIConditionType="Hide">
       </Uniform>
 
-		<Uniform Row="2" Col="2" Page="0" Default="False" Tooltip="" DisplayName="Pallette" Type="bool" Name="show_gpallette"
+		<Uniform Row="2" Col="2" Page="0" Default="False" Tooltip="" DisplayName="Palette" Type="bool" Name="show_gpalette"
 	 		UIConditionSource="process" UIConditionValue="5" UIConditionInvert="False" UIConditionType="Hide">
       </Uniform>
       <Uniform ResDependent="None" Max="1000000.0" Min="-1000000.0" Default="0.95" Inc="0.01" Tooltip="" Row="0" Col="1" Page="0" DisplayName="Size" Type="float" Name="cw_size"
@@ -294,7 +294,7 @@ Matchbox version by miles@noesclavo.com and ivar@inferno-op.com" Name="ColouredF
 		<Uniform ResDependent="None" Max="1000000.0" Min="-1000000.0" Default="1.0" Inc="0.01" Tooltip="" Row="3" Col="1" Page="0" DisplayName="Aspect" Type="float" Name="cb_aspect"
 	  		UIConditionSource="process" UIConditionValue="2" UIConditionInvert="False" UIConditionType="Hide">
       </Uniform>
-		<Uniform ResDependent="None" Max="6.0" Min="0.0" Default="6.0" Inc="1.0" Tooltip="" Row="3" Col="2" Page="0" DisplayName="Detail" Type="float" Name="gpallette_detail"
+		<Uniform ResDependent="None" Max="6.0" Min="0.0" Default="6.0" Inc="1.0" Tooltip="" Row="3" Col="2" Page="0" DisplayName="Detail" Type="float" Name="gpalette_detail"
 	  		UIConditionSource="process" UIConditionValue="5" UIConditionInvert="False" UIConditionType="Hide">
       </Uniform>
     <Uniform Inc="1.0" Tooltip="" Row="0" Col="1" Page="0" DisplayName="Color 1" IconType="None" ValueType="Colour" Type="vec3" Name="g_gridcolor" UIConditionSource="process" UIConditionValue="7" UIConditionInvert="False" UIConditionType="Hide">
