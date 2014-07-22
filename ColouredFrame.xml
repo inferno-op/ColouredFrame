@@ -29,7 +29,7 @@ Type:
 	Noise:
 		- Color: switch colored noise on/off
 		- Static: switch static frame on/off
-		- Size: zoom in/out of the noise
+		- Resolution: zoom in/out of the noise
 
 	Checkerboard:
 		- Color1: 1st color of the checkerboard
@@ -68,6 +68,7 @@ Type:
 	Grid:
 		- Color1: grid color 
 		- Color2: bg color
+		- Invert: invert color selection
 		- Size: adjust grid size
 		- Width: adjust grid width
 		- Rotation: rotates the grid
