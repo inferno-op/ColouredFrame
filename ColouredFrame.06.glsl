@@ -225,12 +225,12 @@ float luminance(vec3 col) {
 	return clamp(dot(col, lum_c), 0.0, 1.0);
 }
 
+//NOISE
 float rand2(vec2 co) 
 {
 	return fract(sin(dot(co.xy,vec2(12.9898,78.233))) * 43758.5453);
 }
 
-//NOISE
 vec3 noise(vec2 st) {
 	vec2 c = (cells/100.*res.x)*vec2(1.,res.y/res.x);
 	vec3 col = vec3(0.0);
